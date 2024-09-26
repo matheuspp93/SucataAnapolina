@@ -18,18 +18,21 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  padding: 0 15%;
   position: relative;
 }
 
+.side-padding {
+  padding: 0 15%;
+}
+
 @media (max-width: 960px) {
-  body {
+  .side-padding {
     padding: 2rem 4rem;
   }
 }
 
 @media (max-width: 768px) {
-  body {
+  .side-padding {
     padding: 0;
   }
 }

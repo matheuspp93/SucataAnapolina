@@ -26,7 +26,11 @@ const Header = () => {
   }, []);
 
   return (
-    <>
+    <header
+      className={`side-padding fixed w-full z-50${
+        scrollY >= 75 ? " bg-white" : ""
+      } `}
+    >
       {scrollY <= 0 && (
         <section className="flex justify-between items-center py-2">
           <div className="flex items-center space-x-2">
@@ -43,11 +47,7 @@ const Header = () => {
           </div>
         </section>
       )}
-      <header
-        className={`w-full ${
-          scrollY >= 75 ? "fixed left-0" : ""
-        } text-gray-700 bg-white transition-opacity`}
-      >
+      <section className={`w-full text-gray-700 bg-white transition-opacity`}>
         <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
           <div className="p-4 flex flex-row items-center justify-between">
             <a
@@ -94,7 +94,7 @@ const Header = () => {
                   className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="#"
                 >
-                  {scrollY}
+                  Home
                 </a>
               </li>
               <li>
@@ -124,8 +124,8 @@ const Header = () => {
             </ul>
           </nav>
         </div>
-      </header>
-    </>
+      </section>
+    </header>
   );
 };
 
