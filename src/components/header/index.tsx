@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
@@ -15,11 +16,9 @@ const Header = () => {
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
-    console.log(window.scrollY);
   };
 
   useEffect(() => {
-    // Adiciona o evento de scroll apenas no cliente
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleScroll);
     }
@@ -32,7 +31,7 @@ const Header = () => {
       } `}
     >
       {scrollY <= 0 && (
-        <section className="flex justify-between items-center py-2">
+        <section className="flex justify-between items-center py-2 text-white">
           <div className="flex items-center space-x-2">
             <LuPhoneCall />
             <span>99 99999-9999</span>
@@ -47,8 +46,10 @@ const Header = () => {
           </div>
         </section>
       )}
-      <section className={`w-full text-gray-700 bg-white transition-opacity`}>
-        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <section
+        className={`w-full text-gray-700 bg-white transition-opacity rounded-lg`}
+      >
+        <div className="flex w-full px-4 justify-between md:items-center md:flex-row">
           <div className="p-4 flex flex-row items-center justify-between">
             <a
               href="#"
@@ -90,36 +91,36 @@ const Header = () => {
           >
             <ul className="flex flex-col md:flex-row md:space-x-4">
               <li>
-                <a
+                <Link
                   className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                  href="/"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                  href="/blog"
                 >
-                  Portfolio
-                </a>
+                  Blog
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="#"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="#"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
