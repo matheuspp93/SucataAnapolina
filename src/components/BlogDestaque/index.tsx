@@ -29,7 +29,7 @@ const BlogDestaque = () => {
   console.log(data);
 
   return (
-    <section className="flex justify-center items-center">
+    <section className="flex justify-center items-center mt-10">
       <div className="2xl:mx-auto 2xl:container w-96 sm:w-auto">
         <div className="flex flex-col items-center justify-center">
           <SectionTitle tag="blog" title="ultimas notícias" />

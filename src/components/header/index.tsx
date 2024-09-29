@@ -50,7 +50,7 @@ const Header = () => {
         className={`w-full text-gray-700 bg-white transition-opacity rounded-lg`}
       >
         <div className="flex w-full px-4 justify-between md:items-center md:flex-row">
-          <div className="p-4 flex flex-row items-center justify-between">
+          <div className="p-4 flex flex-row items-center justify-between w-full">
             <a
               href="#"
               className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white"
@@ -85,14 +85,20 @@ const Header = () => {
             </button>
           </div>
           <nav
-            className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row ${
+            className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row relative ${
               isOpen ? "flex" : "hidden"
             }`}
           >
-            <ul className="flex flex-col md:flex-row md:space-x-4">
+            <ul
+              className={`flex flex-col md:flex-row md:space-x-4 md:relative ${
+                isOpen
+                  ? "absolute text-end p-[10px] w-[150px] right-[-16px] top-[90%] bg-white rounded-lg gap-3"
+                  : ""
+              }`}
+            >
               <li>
                 <Link
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/"
                 >
                   Home
@@ -100,7 +106,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/blog"
                 >
                   Blog
@@ -108,7 +114,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="#"
                 >
                   About
@@ -116,7 +122,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="#"
                 >
                   Contact

@@ -6,7 +6,7 @@ const SectionTitle = ({ tag, title }: { tag: string; title: string }) => {
       <p className="text-3xl flex items-center font-bold text-[#71717a]">
         {tag.toUpperCase()} <MdOutlineKeyboardOptionKey size={32} />
       </p>
-      <h2 className="text-6xl text-[#218200] font-bold">
+      <h2 className="lg:text-6xl text-4xl text-[#218200] font-bold">
         {title.toUpperCase()}
       </h2>
     </section>
