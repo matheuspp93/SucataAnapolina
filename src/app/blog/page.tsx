@@ -2,7 +2,6 @@
 import Banner from "@/components/Banner";
 import { BlogPost } from "@/types/blog";
 import {
-  Card,
   CardHeader,
   CardBody,
   Typography,
@@ -13,10 +12,9 @@ import { useState, useEffect } from "react";
 
 export default function Blog() {
   const [data, setData] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/articles")
+    fetch("http://localhost:3000/api/articles")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erro na requisição");
@@ -25,10 +23,9 @@ export default function Blog() {
       })
       .then((data) => {
         setData(data);
-        setLoading(false);
       })
       .catch((error) => {
-        setLoading(false);
+        console.error(error);
       });
   }, []);
   return (
@@ -37,7 +34,7 @@ export default function Blog() {
         title="Blog"
         img="https://i0.wp.com/asisprojetos.com.br/wp-content/uploads/2023/02/sucata_ou_subproduto.jpg?w=1920&ssl=1s"
       />
-      <ul className="gap-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  side-padding bg-[#ededed] py-16 min-[320px]:grid-cols-1">
+      <ul className="gap-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 side-padding bg-[#ededed] py-16 min-[320px]:grid-cols-1">
         {data.map((item, index) => (
           <li
             key={index}

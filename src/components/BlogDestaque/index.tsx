@@ -3,15 +3,19 @@ import Link from "next/link";
 import SectionTitle from "../SectionTitle";
 import { useState, useEffect } from "react";
 import { BlogPost } from "@/types/blog";
-import BlogSkeleton from "./skeleton";
+import BlogSkeleton from "../BlogSkeleton";
 
 const BlogDestaque = () => {
   const [data, setData] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/articles")
+    console.log("carregando");
+
+    fetch("http://localhost:3000/api/articles")
       .then((response) => {
+        console.log(response);
+
         if (!response.ok) {
           throw new Error("Erro na requisição");
         }
@@ -22,11 +26,12 @@ const BlogDestaque = () => {
         setLoading(false);
       })
       .catch((error) => {
+        console.error("Erro no fetch:", error);
         setLoading(false);
       });
   }, []);
 
-  console.log(data);
+  console.log(data, "AA");
 
   return (
     <section className="flex justify-center items-center mt-10">

@@ -14,7 +14,7 @@ const BlogSkeleton = () => (
               Dive into minimalism
             </p>
             <a
-              href="javascript:void(0)"
+              href="#"
               className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-400 bg-gray-400 hover:text-green-700 hover:underline"
             >
               <p className="pr-2 text-sm font-medium leading-none">Read More</p>
@@ -34,7 +34,7 @@ const BlogSkeleton = () => (
               Dive into minimalism
             </p>
             <a
-              href="javascript:void(0)"
+              href="#"
               className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-400 bg-gray-400 hover:text-green-700 hover:underline"
             >
               <p className="pr-2 text-sm font-medium leading-none">Read More</p>
@@ -55,7 +55,7 @@ const BlogSkeleton = () => (
             Dive into minimalism
           </p>
           <a
-            href="javascript:void(0)"
+            href="#"
             className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-400 bg-gray-400 hover:text-green-700 hover:underline"
           >
             <p className="pr-2 text-sm font-medium leading-none">Read More</p>
@@ -77,7 +77,7 @@ const BlogSkeleton = () => (
             Dive into minimalism
           </p>
           <a
-            href="javascript:void(0)"
+            href="#"
             className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-400 bg-gray-400 hover:text-green-700 hover:underline"
           >
             <p className="pr-2 text-sm font-medium leading-none">Read More</p>
@@ -98,7 +98,7 @@ const BlogSkeleton = () => (
               Dive into minimalism
             </p>
             <a
-              href="javascript:void(0)"
+              href="#"
               className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-400 bg-gray-400 hover:text-green-700 hover:underline"
             >
               <p className="pr-2 text-sm font-medium leading-none">Read More</p>
@@ -118,7 +118,7 @@ const BlogSkeleton = () => (
               Dive into minimalism
             </p>
             <a
-              href="javascript:void(0)"
+              href="#"
               className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-400 bg-gray-400 hover:text-green-700 hover:underline"
             >
               <p className="pr-2 text-sm font-medium leading-none">Read More</p>

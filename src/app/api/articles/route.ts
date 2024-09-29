@@ -8,7 +8,7 @@ const articles = [
     description: "Dive into minimalism",
     imgSrc: "https://i.ibb.co/DYxtCJq/img-1.png",
     alt: "chair",
-    html: ` <figure class="mt-6">
+    html: `<figure class="mt-6">
           <img
             src="https://movestock.com/uploads/produtos/RETALHOS-VIGAS.webp"
             alt="Vigas"
@@ -142,7 +142,7 @@ const articles = [
     description: "Dive into minimalism",
     imgSrc: "https://i.ibb.co/Ms4qyXp/img-3.png",
     alt: "sitting place",
-    html: ` <figure class="mt-6">
+    html: `<figure class="mt-6">
           <img
             src="https://movestock.com/uploads/produtos/RETALHOS-VIGAS.webp"
             alt="Vigas"
@@ -217,7 +217,7 @@ const articles = [
     description: "Dive into minimalism",
     imgSrc: "https://i.ibb.co/3yvZBpm/img-5.png",
     alt: "wall design",
-    html: ` <figure class="mt-6">
+    html: `<figure class="mt-6">
           <img
             src="https://movestock.com/uploads/produtos/RETALHOS-VIGAS.webp"
             alt="Vigas"
@@ -284,7 +284,7 @@ const articles = [
     description: "Dive into minimalism",
     imgSrc: "https://i.ibb.co/gDdnJb5/img-6.png",
     alt: "sitting place",
-    html: ` <figure class="mt-6">
+    html: `<figure class="mt-6">
           <img
             src="https://movestock.com/uploads/produtos/RETALHOS-VIGAS.webp"
             alt="Vigas"

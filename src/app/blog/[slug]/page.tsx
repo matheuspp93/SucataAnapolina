@@ -11,7 +11,6 @@ export default function Slug() {
     [path.split("/").length - 1].replaceAll("%20", " ");
 
   const [data, setData] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/articles")
@@ -23,10 +22,9 @@ export default function Slug() {
       })
       .then((data) => {
         setData(data);
-        setLoading(false);
       })
       .catch((error) => {
-        setLoading(false);
+        console.error(error);
       });
   }, []);
 
@@ -38,10 +36,10 @@ export default function Slug() {
         title={item?.title ?? ""}
         img="https://i0.wp.com/asisprojetos.com.br/wp-content/uploads/2023/02/sucata_ou_subproduto.jpg?w=1920&ssl=1s"
       />
-      <section
+      <div
         className="py-16 bg-[#ededed] side-padding flex flex-col gap-3"
-        dangerouslySetInnerHTML={{ __html: item?.html ?? "" }}
-      ></section>
+        dangerouslySetInnerHTML={{ __html: item ? item.html : <div></div> }}
+      ></div>
     </>
   );
 }
