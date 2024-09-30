@@ -7,23 +7,31 @@ export interface DestaqueProps {
   tag: string;
   bg: "transparent" | "color";
   texto: string;
+  flexDir?: "reverse";
 }
 
-const Destaque: React.FC<DestaqueProps> = ({ img, titulo, tag, bg, texto }) => {
+const Destaque: React.FC<DestaqueProps> = ({
+  img,
+  titulo,
+  tag,
+  bg,
+  texto,
+  flexDir,
+}) => {
   return (
     <section
-      className={`flex w-full items-center gap-5 side-padding mt-10 flex-col lg:flex-row ${
+      className={`flex w-full items-center lg:items-start gap-5 side-padding mt-10 flex-col lg:h-[400px] ${
         bg === "color" ? "bg-gray-300" : "bg-transparent"
-      } `}
+      } ${flexDir === "reverse" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
     >
-      <div className="relative w-full py-5 lg:w-1/2">
+      <div className="relative w-full py-5 lg:w-1/2 lg:h-full">
         <img
           src={img}
           alt="Imagem destaque"
-          className="w-full h-auto rounded-xl"
+          className="w-full h-full rounded-xl"
         />
       </div>
-      <div className="w-full lg:w-1/2 ">
+      <div className="w-full lg:w-1/2 py-5">
         <p className="text-2xl flex items-center font-bold text-[#71717a]">
           {tag.toUpperCase()} <MdOutlineKeyboardOptionKey size={32} />
         </p>

@@ -115,9 +115,9 @@ const Header = () => {
               <li>
                 <Link
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                  href="/sobre-nos"
                 >
-                  About
+                  Sobre
                 </Link>
               </li>
               <li>
