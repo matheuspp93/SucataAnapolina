@@ -1,8 +1,12 @@
-"use client";
 import Banner from "@/components/Banner";
-import { BlogPost } from "@/types/blog";
+import { articles } from "@/data/blog";
+
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+
+export const metadata = {
+  title: "Blog",
+  description: "Conheça mais sobre nossas novidades.",
+};
 
 export default function Slug() {
   const path = usePathname();
@@ -10,25 +14,7 @@ export default function Slug() {
     .split("/")
     [path.split("/").length - 1].replaceAll("%20", " ");
 
-  const [data, setData] = useState<BlogPost[]>([]);
-
-  useEffect(() => {
-    fetch("/api/articles")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Erro na requisição");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  const item = data.find((e) => e.title.replaceAll(" ", "") === title);
+  const item = articles.find((e) => e.title.replaceAll(" ", "") === title);
 
   return (
     <>
@@ -38,7 +24,7 @@ export default function Slug() {
       />
       <div
         className="py-16 bg-[#ededed] side-padding flex flex-col gap-3"
-        dangerouslySetInnerHTML={{ __html: item ? item.html : <div></div> }}
+        dangerouslySetInnerHTML={{ __html: item?.html ?? "<div></div>" }}
       ></div>
     </>
   );

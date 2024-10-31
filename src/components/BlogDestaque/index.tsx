@@ -1,231 +1,36 @@
 "use client";
-import Link from "next/link";
 import SectionTitle from "../SectionTitle";
-import { useState, useEffect } from "react";
-import { BlogPost } from "@/types/blog";
-import BlogSkeleton from "../BlogSkeleton";
+import Link from "next/link";
+import { articles } from "@/data/blog";
 
 const BlogDestaque = () => {
-  const [data, setData] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    console.log("carregando");
-
-    fetch("http://localhost:3000/api/articles")
-      .then((response) => {
-        console.log(response);
-
-        if (!response.ok) {
-          throw new Error("Erro na requisição");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Erro no fetch:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  console.log(data, "AA");
-
   return (
-    <section className="flex justify-center items-center mt-10">
-      <div className="2xl:mx-auto 2xl:container w-96 sm:w-auto">
-        <div className="flex flex-col items-center justify-center">
-          <SectionTitle tag="blog" title="ultimas notícias" />
-        </div>
-        {loading ? (
-          <BlogSkeleton />
-        ) : (
-          <div className="lg:flex items-stretch md:mt-12 mt-8">
-            <div className="lg:w-1/2">
-              <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6">
-                {data.map((e, idx) => {
-                  if (idx <= 1) {
-                    return (
-                      <article key={idx} className="sm:w-1/2 relative">
-                        <time className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                          {e.date}
-                        </time>
-                        <div className="absolute bottom-0 left-0 p-6">
-                          <h2 className="text-xl font-semibold text-white">
-                            {e.title}
-                          </h2>
-                          <p className="text-base leading-4 text-white mt-2">
-                            {e.description}
-                          </p>
-                          <Link
-                            href={`/blog/${e.title.replaceAll(" ", "")}`}
-                            className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-green-500 hover:text-green-700 hover:underline"
-                          >
-                            <p className="pr-2 text-sm font-medium leading-none">
-                              Read More
-                            </p>
-                            <svg
-                              className="fill-stroke"
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M5.75 12.5L10.25 8L5.75 3.5"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </Link>
-                        </div>
-                        <img src={e.imgSrc} className="w-full" alt={e.alt} />
-                      </article>
-                    );
-                  }
-                })}
-              </div>
-              <article className="relative">
-                <time className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                  {data[2].date}
-                </time>
-                <div className="absolute bottom-0 left-0 md:p-10 p-6">
-                  <h2 className="text-xl font-semibold text-white">
-                    {data[2].title}
-                  </h2>
-                  <p className="text-base leading-4 text-white mt-2">
-                    {data[2].description}
-                  </p>
+    <section className="w-full mx-auto px-4 mb-12 side-padding">
+      <article>
+        <SectionTitle tag="Blog" title="Ultimas notícias" />
+        <section className="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
+          {articles.map((post) => (
+            <article
+              key={post.id}
+              className="relative w-full h-64 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out"
+              style={{ backgroundImage: `url(${post.imgSrc})` }}
+            >
+              <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
+              <div className="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
+                <h3 className="text-center">
                   <Link
-                    href={`/blog/${data[2].title.replaceAll(" ", "")}`}
-                    className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-green-500 hover:text-green-700 hover:underline"
+                    href={`/blog/${post.title.replaceAll(" ", "")}`}
+                    className="text-white text-2xl font-bold text-center"
                   >
-                    <p className="pr-2 text-sm font-medium leading-none">
-                      Read More
-                    </p>
-                    <svg
-                      className="fill-stroke"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.75 12.5L10.25 8L5.75 3.5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <span className="absolute inset-0"></span>
+                    {post.title}
                   </Link>
-                </div>
-                <img
-                  src={data[2].imgSrc}
-                  alt={data[2].alt}
-                  className="w-full mt-8 md:mt-6 hidden sm:block"
-                />
-              </article>
-            </div>
-            <div className="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
-              <article className="relative">
-                <time className="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                  {data[3].date}
-                </time>
-                <div className="absolute bottom-0 left-0 md:p-10 p-6">
-                  <h2 className="text-xl font-semibold text-white">
-                    {data[3].title}
-                  </h2>
-                  <p className="text-base leading-4 text-white mt-2">
-                    {data[3].description}
-                  </p>
-                  <Link
-                    href={`/blog/${data[3].title.replaceAll(" ", "")}`}
-                    className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-green-500 hover:text-green-700 hover:underline"
-                  >
-                    <p className="pr-2 text-sm font-medium leading-none">
-                      Read More
-                    </p>
-                    <svg
-                      className="fill-stroke"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.75 12.5L10.25 8L5.75 3.5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-                <img
-                  src={data[3].imgSrc}
-                  alt={data[3].alt}
-                  className="w-full sm:block hidden"
-                />
-              </article>
-              <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
-                {data.map((e, idx) => {
-                  if (idx > 3 && idx <= 5) {
-                    return (
-                      <article key={idx} className="sm:w-1/2 relative">
-                        <time className="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
-                          {e.date}
-                        </time>
-                        <div className="absolute bottom-0 left-0 p-6">
-                          <h2 className="text-xl font-semibold text-white">
-                            {e.title}
-                          </h2>
-                          <p className="text-base leading-4 text-white mt-2">
-                            {e.description}
-                          </p>
-                          <Link
-                            href={`/blog/${e.title.replaceAll(" ", "")}`}
-                            className="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-green-500 hover:text-green-700 hover:underline"
-                          >
-                            <p className="pr-2 text-sm font-medium leading-none">
-                              Read More
-                            </p>
-                            <svg
-                              className="fill-stroke"
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M5.75 12.5L10.25 8L5.75 3.5"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </Link>
-                        </div>
-                        <img src={e.imgSrc} className="w-full" alt={e.alt} />
-                      </article>
-                    );
-                  }
-                })}
+                </h3>
               </div>
-            </div>
-          </div>
-        )}
-      </div>
+            </article>
+          ))}
+        </section>
+      </article>
     </section>
   );
 };

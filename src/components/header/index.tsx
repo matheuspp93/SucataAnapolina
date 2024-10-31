@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useEffect, useState } from "react";
-import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
+import { IoLogoInstagram } from "react-icons/io";
 import { LuPhoneCall } from "react-icons/lu";
 
 const Header = () => {
@@ -27,21 +27,18 @@ const Header = () => {
   return (
     <header
       className={`side-padding fixed w-full z-50${
-        scrollY >= 75 ? " bg-white" : ""
+        scrollY >= 75 ? " bg-white shadow-md" : ""
       } `}
     >
       {scrollY <= 0 && (
-        <section className="flex justify-between items-center py-2 text-white">
+        <section className="flex justify-between items-center py-2 text-white ">
           <div className="flex items-center space-x-2">
             <LuPhoneCall />
-            <span>99 99999-9999</span>
+            <span>{"(62)"} 3324-0361</span>
           </div>
           <div className="flex space-x-4">
-            <a href="">
-              <IoLogoInstagram />
-            </a>
-            <a href="">
-              <IoLogoFacebook />
+            <a href="https://www.instagram.com/sucatasanapolina/">
+              <IoLogoInstagram size={32} />
             </a>
           </div>
         </section>
@@ -98,6 +95,7 @@ const Header = () => {
             >
               <li>
                 <Link
+                  prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/"
                 >
@@ -106,6 +104,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/blog"
                 >
@@ -114,6 +113,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/sobre-nos"
                 >
@@ -122,10 +122,11 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                  href="/contato"
                 >
-                  Contact
+                  Contato
                 </Link>
               </li>
             </ul>

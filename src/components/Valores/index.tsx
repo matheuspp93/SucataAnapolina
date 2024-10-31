@@ -5,8 +5,8 @@ const Valores = () => {
   return (
     <section className="side-padding py-16">
       <SectionTitle title="Nossos Valores" />
-      <ul className="flex justify-between pt-10">
-        <li className="flex items-center flex-col gap-2 w-1/3">
+      <ul className="flex justify-between pt-10 flex-col md:flex-row">
+        <li className="flex items-center flex-col gap-2 md:w-1/3 w-full">
           <div className="rounded-full bg-green-500 p-4">
             <FaCross color="#fff" size={50} />
           </div>
@@ -17,7 +17,7 @@ const Valores = () => {
             <p>Resultado é consequência do nosso criador</p>
           </div>
         </li>
-        <li className="flex items-center flex-col gap-2 w-1/3">
+        <li className="flex items-center flex-col gap-2 md:w-1/3 w-full">
           <div className="rounded-full bg-green-500 p-4">
             <FaHandPaper color="#fff" size={50} />
           </div>
@@ -31,7 +31,7 @@ const Valores = () => {
             </p>
           </div>
         </li>
-        <li className="flex items-center flex-col gap-2 w-1/3">
+        <li className="flex items-center flex-col gap-2 md:w-1/3 w-full">
           <div className="rounded-full bg-green-500 p-4">
             <FaHandsHelping color="#fff" size={50} />
           </div>

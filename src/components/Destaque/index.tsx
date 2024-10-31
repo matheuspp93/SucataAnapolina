@@ -28,7 +28,7 @@ const Destaque: React.FC<DestaqueProps> = ({
         <img
           src={img}
           alt="Imagem destaque"
-          className="w-full h-full rounded-xl"
+          className="w-full h-full rounded-xl object-cover"
         />
       </div>
       <div className="w-full lg:w-1/2 py-5">
