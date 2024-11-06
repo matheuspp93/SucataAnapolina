@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
-import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
+import { IoLogoInstagram } from "react-icons/io";
 import { LuPhoneCall } from "react-icons/lu";
 
 const Header = () => {
@@ -15,41 +16,38 @@ const Header = () => {
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
-    console.log(window.scrollY);
   };
 
   useEffect(() => {
-    // Adiciona o evento de scroll apenas no cliente
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleScroll);
     }
   }, []);
 
   return (
-    <>
+    <header
+      className={`side-padding fixed w-full z-50${
+        scrollY >= 75 ? " bg-white shadow-md" : ""
+      } `}
+    >
       {scrollY <= 0 && (
-        <section className="flex justify-between items-center py-2">
+        <section className="flex justify-between items-center py-2 text-white ">
           <div className="flex items-center space-x-2">
             <LuPhoneCall />
-            <span>99 99999-9999</span>
+            <span>{"(62)"} 3324-0361</span>
           </div>
           <div className="flex space-x-4">
-            <a href="">
-              <IoLogoInstagram />
-            </a>
-            <a href="">
-              <IoLogoFacebook />
+            <a href="https://www.instagram.com/sucatasanapolina/">
+              <IoLogoInstagram size={32} />
             </a>
           </div>
         </section>
       )}
-      <header
-        className={`w-full ${
-          scrollY >= 75 ? "fixed left-0" : ""
-        } text-gray-700 bg-white transition-opacity`}
+      <section
+        className={`w-full text-gray-700 bg-white transition-opacity rounded-lg`}
       >
-        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-          <div className="p-4 flex flex-row items-center justify-between">
+        <div className="flex w-full px-4 justify-between md:items-center md:flex-row">
+          <div className="p-4 flex flex-row items-center justify-between w-full">
             <a
               href="#"
               className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white"
@@ -84,48 +82,58 @@ const Header = () => {
             </button>
           </div>
           <nav
-            className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row ${
+            className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row relative ${
               isOpen ? "flex" : "hidden"
             }`}
           >
-            <ul className="flex flex-col md:flex-row md:space-x-4">
+            <ul
+              className={`flex flex-col md:flex-row md:space-x-4 md:relative ${
+                isOpen
+                  ? "absolute text-end p-[10px] w-[150px] right-[-16px] top-[90%] bg-white rounded-lg gap-3"
+                  : ""
+              }`}
+            >
               <li>
-                <a
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                <Link
+                  prefetch={false}
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
+                  href="/"
                 >
-                  {scrollY}
-                </a>
+                  Home
+                </Link>
               </li>
               <li>
-                <a
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                <Link
+                  prefetch={false}
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
+                  href="/blog"
                 >
-                  Portfolio
-                </a>
+                  Blog
+                </Link>
               </li>
               <li>
-                <a
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                <Link
+                  prefetch={false}
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
+                  href="/sobre-nos"
                 >
-                  About
-                </a>
+                  Sobre
+                </Link>
               </li>
               <li>
-                <a
-                  className="px-4 py-2 text-sm font-semibold text-[#218200] bg-transparent rounded-lg"
-                  href="#"
+                <Link
+                  prefetch={false}
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
+                  href="/contato"
                 >
-                  Contact
-                </a>
+                  Contato
+                </Link>
               </li>
             </ul>
           </nav>
         </div>
-      </header>
-    </>
+      </section>
+    </header>
   );
 };
 
