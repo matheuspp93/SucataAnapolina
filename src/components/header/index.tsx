@@ -26,12 +26,12 @@ const Header = () => {
 
   return (
     <header
-      className={`side-padding fixed w-full z-50${
-        scrollY >= 75 ? " bg-white shadow-md" : ""
+      className={`side-padding fixed w-full z-50 bg-white ${
+        scrollY >= 75 ? " md:bg-white shadow-md" : "md:bg-transparent"
       } `}
     >
       {scrollY <= 0 && (
-        <section className="flex justify-between items-center py-2 text-white ">
+        <section className="hidden md:flex justify-between items-center py-2 md:text-white ">
           <div className="flex items-center space-x-2">
             <LuPhoneCall />
             <span>{"(62)"} 3324-0361</span>
@@ -43,11 +43,23 @@ const Header = () => {
           </div>
         </section>
       )}
+
+      <section className="md:hidden flex justify-between items-center py-2 md:text-white ">
+        <div className="flex items-center space-x-2">
+          <LuPhoneCall />
+          <span>{"(62)"} 3324-0361</span>
+        </div>
+        <div className="flex space-x-4">
+          <a href="https://www.instagram.com/sucatasanapolina/">
+            <IoLogoInstagram size={32} />
+          </a>
+        </div>
+      </section>
       <section
         className={`w-full text-gray-700 bg-white transition-opacity rounded-lg`}
       >
-        <div className="flex w-full px-4 justify-between md:items-center md:flex-row">
-          <div className="p-4 flex flex-row items-center justify-between w-full">
+        <div className="flex w-full md:px-4 justify-between md:items-center md:flex-row">
+          <div className="md:p-4 flex flex-row items-center justify-between w-full">
             <a
               href="#"
               className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white"
@@ -82,14 +94,14 @@ const Header = () => {
             </button>
           </div>
           <nav
-            className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row relative ${
+            className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row ${
               isOpen ? "flex" : "hidden"
             }`}
           >
             <ul
-              className={`flex flex-col md:flex-row md:space-x-4 md:relative ${
+              className={`flex flex-col md:flex-row md:space-x-4 md:relative md:w-auto w-screen ${
                 isOpen
-                  ? "absolute text-end p-[10px] w-[150px] right-[-16px] top-[90%] bg-white rounded-lg gap-3"
+                  ? "absolute text-end p-[10px] w-[150px] right-[0] top-[100%] bg-white  gap-3"
                   : ""
               }`}
             >

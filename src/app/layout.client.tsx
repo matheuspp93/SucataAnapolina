@@ -1,5 +1,5 @@
 "use client";
-
+import "animate.css/animate.compat.css"
 import "./globals.css";
 import { ThemeProvider } from "@material-tailwind/react";
 import ReactDOM from "react-dom";

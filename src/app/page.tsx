@@ -11,6 +11,7 @@ export default function Home() {
         <CarouselBanner />
       </section>
       <Destaque
+        animateIn="fadeIn"
         bg="color"
         img="https://industriasa.com.br/wp-content/uploads/2023/05/Sucata-Metalica-Brasileira.webp"
         tag="Sobre"

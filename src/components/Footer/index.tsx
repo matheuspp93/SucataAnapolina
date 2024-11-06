@@ -11,7 +11,7 @@ const Footer = () => {
           <Link
             prefetch={false}
             href="/"
-            className="flex items-center justify-center font-medium text-white title-font md:justify-start"
+            className="flex items-center justify-center font-medium text-white title-font"
           >
             <Image
               src="/img/logoWhite.png"
@@ -34,7 +34,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="-mb-10 -mx-4 md:mt-0 mt-10 ">
+        <div className="-mb-10 -mx-4 md:mt-0 ">
           <div className="w-full ">
             <h2 className="mb-3 text-sm font-medium tracking-widest text-white title-font text-center">
               SOBRE

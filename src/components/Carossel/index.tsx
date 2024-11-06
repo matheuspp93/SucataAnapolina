@@ -8,6 +8,8 @@ const CarouselBanner = () => {
     <Carousel
       className="rounded-xl"
       placeholder={undefined}
+      loop
+      autoplay
       onPointerEnterCapture={undefined}
       onPointerLeaveCapture={undefined}
       navigation={({ setActiveIndex, activeIndex, length }) => (
