@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
 import { MdOutlineKeyboardOptionKey } from "react-icons/md";
 
 export interface DestaqueProps {
