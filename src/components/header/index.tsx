@@ -145,6 +145,16 @@ const Header = () => {
                   Contato
                 </Link>
               </li>
+              <li>
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  prefetch={false}
+                  className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
+                  href="/produtos"
+                >
+                  Produtos
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
