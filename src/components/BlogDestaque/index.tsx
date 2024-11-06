@@ -19,7 +19,9 @@ const BlogDestaque = () => {
               <div className="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
                 <h3 className="text-center">
                   <Link
-                    href={`/blog/${post.title.replaceAll(" ", "")}`}
+                    href={`/blog/${encodeURIComponent(
+                      post.title.replaceAll(" ", "")
+                    )}`}
                     className="text-white text-2xl font-bold text-center"
                   >
                     <span className="absolute inset-0"></span>

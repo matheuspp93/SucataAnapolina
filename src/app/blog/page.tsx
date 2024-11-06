@@ -1,11 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Banner from "@/components/Banner";
 import { articles } from "@/data/blog";
-
-export const metadata = {
-  title: "Blog",
-  description: "Conheça mais sobre nossas novidades.",
-};
 
 export default function Blog() {
   return (

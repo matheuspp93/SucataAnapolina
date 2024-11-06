@@ -19,7 +19,7 @@ const Banner = ({ title, img }: { title: string; img: string }) => {
         <p className="text-2xl flex items-center font-bold text-[#eeeeee]">
           Sucatas Anapolina
         </p>
-        <h2 className="text-6xl text-[#33c203] font-bold">
+        <h2 className="text-4xl md:text-6xl text-[#33c203] font-bold">
           {title.toUpperCase()}
         </h2>
         <ul className="mb-14 flex flex-wrap items-center w-fit bg-blue-gray-50 bg-opacity-60 py-2 px-4 rounded-md">
