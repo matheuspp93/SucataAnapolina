@@ -99,14 +99,15 @@ const Header = () => {
             }`}
           >
             <ul
-              className={`flex flex-col md:flex-row md:space-x-4 md:relative md:w-auto w-screen ${
+              className={`flex justify-between md:flex-row md:space-x-4 md:relative md:w-auto w-screen ${
                 isOpen
-                  ? "absolute text-end p-[10px] w-[150px] right-[0] top-[100%] bg-white  gap-3"
+                  ? "absolute text-end p-[10px] w-[150px] right-[0] top-[99%] bg-white  gap-3"
                   : ""
               }`}
             >
               <li>
                 <Link
+                  onClick={() => setIsOpen(false)}
                   prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/"
@@ -116,6 +117,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  onClick={() => setIsOpen(false)}
                   prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/blog"
@@ -125,6 +127,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  onClick={() => setIsOpen(false)}
                   prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/sobre-nos"
@@ -134,6 +137,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  onClick={() => setIsOpen(false)}
                   prefetch={false}
                   className="px-4 py-2 lg:text-sm text-lg font-semibold text-[#218200] bg-transparent rounded-lg"
                   href="/contato"
