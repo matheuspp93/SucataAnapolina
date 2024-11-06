@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { MdOutlineKeyboardOptionKey } from "react-icons/md";
 
@@ -8,6 +9,7 @@ export interface DestaqueProps {
   bg: "transparent" | "color";
   texto: string;
   flexDir?: "reverse";
+  animateIn?: string;
 }
 
 const Destaque: React.FC<DestaqueProps> = ({

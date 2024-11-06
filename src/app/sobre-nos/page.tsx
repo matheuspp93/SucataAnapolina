@@ -2,6 +2,10 @@ import Banner from "@/components/Banner";
 import Destaque from "@/components/Destaque";
 import Valores from "@/components/Valores";
 
+export const metadata = {
+  title: "Sobre Nós",
+};
+
 export default function SobreNos() {
   return (
     <>

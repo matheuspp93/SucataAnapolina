@@ -3,6 +3,12 @@ import DestaqueProdutos from "@/components/DestaqueProdutos";
 import Valores from "@/components/Valores";
 import { BiLogoWhatsappSquare } from "react-icons/bi";
 
+export const metadata = {
+  title: "Contato",
+  description:
+    "Entre em contato com a nossa equipe especializada em sucata e materiais recicláveis. Oferecemos soluções rápidas e eficientes para venda e compra de sucata. Solicite seu orçamento via WhatsApp ou envie uma mensagem para obter mais informações sobre nossos serviços.",
+};
+
 export default function Contato() {
   return (
     <>
